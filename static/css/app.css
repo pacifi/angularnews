@@ -1,0 +1,13 @@
+.titulo {
+    color: steelblue;
+}
+
+.banner {
+    width: 200px;
+}
+
+.fecha {
+    font-size: small;
+    color: darkgray;
+    float: left;
+}

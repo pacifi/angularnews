@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="newsWikiApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/app.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row" ng-controller="NewsCtrl as vm">
+        <fieldset>
+            <legend class="titulo">Destacado</legend>
+        </fieldset>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-6 col-md-4" ng-repeat="newItem in vm.news">
+                    <div class="thumbnail">
+                        <img src="{{newItem.banner}}" class="banner">
+                        <div class="caption">
+                            <span class="fecha">{{newItem.fechaPublicacion|date}}</span>
+                            <h3>{{newItem.tituloNoticia }}</h3>
+                            <p>{{newItem.descripcionNoticia}}</p>
+                            <p>
+                                <a href="#" class="btn btn-primary" role="button">Leer mas</a>
+                                <a href="#" class="btn btn-default" role="button">Editar</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <fielset>
+            <legend class="titulo">Ultimas Noticias</legend>
+        </fielset>
+    </div>
+</div>
+<!--Angular Scripts-->
+<script src="libs/angular/angular.min.js"></script>
+<script src="libs/angular-i18n/angular-locale_es-pe.js"></script>
+<script src="libs/jquery/dist/jquery.min.js"></script>
+<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!--Application Script-->
+<script src="app/app.js"></script>
+<script src="app/news/newsCtrl.js"></script>
+</body>
+</html>
