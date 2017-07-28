@@ -1,6 +1,7 @@
 /**
  * Created by pacifi on 7/18/17.
  */
+/*globals angular:false */
 (function () {
     "use strict";
     angular.module("newsWikiApp")
@@ -76,6 +77,9 @@
                 'categoria': 'Moda',
                 'tags': ['gamarra', 'moda']
             }
-        ]
+        ];
+
+        me.categories = ['Politica', 'Economia', 'Deportes', 'Moda', 'Mundo'];
+
     }
 }());

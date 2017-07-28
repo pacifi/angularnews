@@ -6,6 +6,10 @@
     width: 200px;
 }
 
+.banner-small {
+    height: 300px;
+}
+
 .fecha {
     font-size: small;
     color: darkgray;
