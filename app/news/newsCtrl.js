@@ -79,7 +79,6 @@
             }
         ];
 
-        me.categories = ['Politica', 'Economia', 'Deportes', 'Moda', 'Mundo'];
 
     }
 }());

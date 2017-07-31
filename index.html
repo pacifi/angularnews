@@ -8,49 +8,65 @@
 </head>
 <body>
 
-<div class="container" ng-controller="NewsCtrl as vm">
-    <div class="row">
-        <fieldset>
-            <legend class="titulo">Destacado</legend>
-        </fieldset>
-        <div class="col-sm-6 col-md-4"
-             ng-repeat="newItem in vm.news | filter:{destacado:true}">
-            <div class="thumbnail">
-                <img src="{{newItem.banner}}" class="banner">
-                <div class="caption">
+<div class="container">
+
+    <div class="row text-center" ng-controller="CategoriesCtrl as vm">
+        <button class="btn btn-default" ng-click="vm.toggleCategories()">{{vm.showCategories? "Ocultar":
+            "Mostrar"}} Categirías
+        </button>
+        <br><br>
+        <div ng-show="vm.showCategories" class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active" ng-repeat="cate in vm.categories">
+                <input type="radio" name="options" id="{{cate}}" autocomplete="off">{{cate}}
+            </label>
+        </div>
+    </div>
+
+    <div class="row" ng-controller="NewsCtrl as vm">
+        <div class="row">
+            <fieldset>
+                <legend class="titulo">Destacado</legend>
+            </fieldset>
+            <div class="col-sm-6 col-md-4"
+                 ng-repeat="newItem in vm.news | filter:{destacado:true} | orderBy:'-fechaPublicacion'">
+                <div class="thumbnail">
+                    <img ng-src="{{newItem.banner}}" class="banner">
+                    <div class="caption">
+                        <span class="fecha">{{newItem.fechaPublicacion|date}}</span>
+                        <h3>{{newItem.tituloNoticia }}</h3>
+                        <p>{{newItem.descripcionNoticia}}</p>
+                        <p>
+                            <a href="#" class="btn btn-primary" role="button">Leer mas</a>
+                            <a href="#" class="btn btn-default" role="button">Editar</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <fielset>
+                <legend class="titulo">Ultimas Noticias</legend>
+            </fielset>
+
+            <div class="col-sm-4 col-md-2"
+                 ng-repeat="newItem in vm.news | filter:{destacado:false} |orderBy:'-fechaPublicacion'">
+                <div class="thumbnail">
+                    <img ng-src="{{newItem.banner}}" class="img-responsive">
                     <span class="fecha">{{newItem.fechaPublicacion|date}}</span>
-                    <h3>{{newItem.tituloNoticia }}</h3>
-                    <p>{{newItem.descripcionNoticia}}</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">Leer mas</a>
-                        <a href="#" class="btn btn-default" role="button">Editar</a>
-                    </p>
+                    <div class="caption">
+
+                        <h4>{{newItem.tituloNoticia }}</h4>
+                        <p>
+                            <a href="#" class="btn btn-primary btn-xs" role="button">Leer</a>
+                            <a href="#" class="btn btn-default btn-xs" role="button">Editar</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <fielset>
-            <legend class="titulo">Ultimas Noticias</legend>
-        </fielset>
-
-        <div class="col-sm-4 col-md-2"
-             ng-repeat="newItem in vm.news | filter:{destacado:false}">
-            <div class="thumbnail">
-                <img src="{{newItem.banner}}" class="img-responsive">
-                <span class="fecha">{{newItem.fechaPublicacion|date}}</span>
-                <div class="caption">
-
-                    <h4>{{newItem.tituloNoticia }}</h4>
-                    <p>
-                        <a href="#" class="btn btn-primary btn-xs" role="button">Leer</a>
-                        <a href="#" class="btn btn-default btn-xs" role="button">Editar</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 <!--Angular Scripts-->
 <script src="libs/angular/angular.min.js"></script>
@@ -61,5 +77,6 @@
 <!--Application Script-->
 <script src="app/app.js"></script>
 <script src="app/news/newsCtrl.js"></script>
+<script src="app/categories/categoriesCtrl.js"></script>
 </body>
 </html>
