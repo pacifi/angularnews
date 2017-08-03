@@ -4,7 +4,7 @@
     "use strict";
 
     angular.module("common.services")
-        .factory("categoriesService", categoriesService);
+        .factory("categoriesService", ["$http", categoriesService]);
 
     function categoriesService($http) {
         // esto me retorna una promesa

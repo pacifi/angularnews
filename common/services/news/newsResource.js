@@ -5,7 +5,7 @@
 (function () {
     "use strict";
     angular.module("common.services")
-        .factory("newsResource", newsResource);
+        .factory("newsResource", ["$resource", newsResource]);
 
     function newsResource($resource) {
         return $resource("/api/noticias/:id");

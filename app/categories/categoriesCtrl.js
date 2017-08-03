@@ -4,7 +4,7 @@
     "use strict";
 
     angular.module("newsWikiApp")
-        .controller("CategoriesCtrl", CategoriesCtrl);
+        .controller("CategoriesCtrl", ["categoriesService", CategoriesCtrl]);
 
     function CategoriesCtrl(categoriesService) {
         var me = this;
@@ -14,7 +14,9 @@
             {
                 categoriesService: categoriesService,
                 success: function (data) {
-                    me.showCategories = data;
+
+                    me.categories = data;
+
                 }
             });
 

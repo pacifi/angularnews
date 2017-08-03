@@ -6,9 +6,11 @@
         'ngMockE2E'
     ]);
 
-    app.run(function ($httpBackend) {
+    app.run(["$httpBackend", function ($httpBackend) {
         var categories = ['Politica', 'Economia', 'Deportes', 'Moda', 'Mundo'];
         var categoriesUrl = "/api/categorias";
+
+        $httpBackend.whenGET(categoriesUrl).respond(categories);
 
         var news = [
             {
@@ -79,7 +81,7 @@
             }
         ];
         var newsUrl = "/api/noticias";
-        $httpBackend.whenGET(categoriesUrl).respond(categories);
+
         $httpBackend.whenGET(newsUrl).respond(news);
-    });
+    }]);
 }());
