@@ -34,7 +34,7 @@
                     <div class="caption">
                         <span class="fecha">{{newItem.fechaPublicacion|date}}</span>
                         <h3>{{newItem.tituloNoticia }}</h3>
-                        <p>{{newItem.descripcionNoticia}}</p>
+                        <p>{{newItem.descripcionNoticia.substring(0,100) + '...'}}</p>
                         <p>
                             <a href="#" class="btn btn-primary" role="button">Leer mas</a>
                             <a href="#" class="btn btn-default" role="button">Editar</a>
