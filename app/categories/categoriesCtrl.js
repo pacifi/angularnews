@@ -6,10 +6,12 @@
     angular.module("newsWikiApp")
         .controller("CategoriesCtrl", CategoriesCtrl)
 
-    function CategoriesCtrl() {
+    function CategoriesCtrl(categoriesService) {
         var me = this;
 
-        me.categories = ['Politica', 'Economia', 'Deportes', 'Moda', 'Mundo'];
+        categoriesService.then(function (response) {
+            me.categories = response.data;
+        });
 
         me.showCategories = false;
 
@@ -18,4 +20,4 @@
         };
 
     }
-})();
+}());
