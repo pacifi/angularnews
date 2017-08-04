@@ -83,5 +83,6 @@
         var newsUrl = "/api/noticias";
 
         $httpBackend.whenGET(newsUrl).respond(news);
+        $httpBackend.whenGET(/app/).passThrough();
     }]);
 }());

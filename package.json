@@ -1,0 +1,24 @@
+{
+  "name": "NewsWiki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pacifi/angularnews.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pacifi/angularnews/issues"
+  },
+  "homepage": "https://github.com/pacifi/angularnews#readme",
+  "dependencies": {
+    "gulp": "3.9.1",
+    "gulp-connect": "5.0.0"
+  }
+}

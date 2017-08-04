@@ -9,5 +9,17 @@
     "use strict"; // corrector estricto basado en ECMA Script
     var app = angular.module("newsWikiApp", [
         "common.services",
-        "common.servicesMock"]);
+        "common.servicesMock",
+        "ui.router"
+    ]);
+
+    app.config(["$stateProvider", function ($stateProvider) {
+        $stateProvider
+            .state("newsList", {
+                    url: "/noticias",
+                    templateUrl: "app/news/newsListView.html",
+                    controller: "NewsCtrl as vm"
+                }
+            );
+    }]);
 }());

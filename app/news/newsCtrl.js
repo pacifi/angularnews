@@ -1,7 +1,7 @@
 /**
  * Created by pacifi on 7/18/17.
  */
-/*globals angular:false */
+/*globals angular*/
 (function () {
     "use strict";
     angular.module("newsWikiApp")
