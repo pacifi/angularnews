@@ -15,6 +15,10 @@
 
     app.config(["$stateProvider", function ($stateProvider) {
         $stateProvider
+            .state("home", {
+                url:"/",
+                templateUrl:"app/welcomeView.html"
+            })
             .state("newsList", {
                     url: "/noticias",
                     templateUrl: "app/news/newsListView.html",
