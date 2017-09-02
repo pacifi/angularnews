@@ -13,7 +13,9 @@
         "ui.router"
     ]);
 
-    app.config(["$stateProvider", function ($stateProvider) {
+    app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
+
+        $urlRouterProvider.otherwise("/");
         $stateProvider
             .state("home", {
                 url:"/",
