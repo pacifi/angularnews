@@ -21,7 +21,7 @@
                 'fechaPublicacion': new Date(),
                 'banner': "static/imgs/MUÑOZCHILE189.jpg",
                 'destacado': true,
-                'categoria': 'Política',
+                'categoria': 'Politica',
                 'tags': ['peru', 'politica', 'guerra']
             },
             {
@@ -32,7 +32,7 @@
                 'fechaPublicacion': new Date(2015, 0, 1),
                 'banner': "static/imgs/350028.jpg",
                 'destacado': true,
-                'categoria': 'Economía',
+                'categoria': 'Economia',
                 'tags': ['alan garcia', 'politica']
             },
             {

@@ -9,7 +9,7 @@
     function CategoriesCtrl(categoriesService) {
         var me = this;
 
-        me.showCategories = false;
+        me.showCategories = true;
         categoriesRepository.getCategories(
             {
                 categoriesService: categoriesService,
