@@ -1,41 +1,54 @@
 /**
- * Created by pacifi on 10/23/17.
+ * Created by pacifi on 23/10/2017.
  */
-/* globals angular toastr */
+/*globals angular, toastr*/
+
 (function () {
     "use strict";
+
     angular.module("newsWikiApp")
         .controller("NewsEditCtrl", ["newsItem", "$state", NewsEditCtrl]);
 
     function NewsEditCtrl(newsItem, $state) {
-        var self = this;
-        self.newsItem = newsItem;
+        var me = this;
+        me.format = 'MMM dd,yyyy';
+        me.newsItem = newsItem;
 
-        if (!self.newsItem.idNoticia) {
-            self.titulo = "Nueva Noticia";
-
+        if (!me.newsItem.idNoticia) {
+            me.titulo = "Nueva Noticia";
         } else {
-            self.titulo = "Editar: " + self.newsItem.tituloNoticia;
+            me.titulo = "Editar: " + me.newsItem.tituloNoticia;
         }
 
-        if (!self.newsItem.destacado) {
-            self.newsItem.destacado = false;
+        if (!me.newsItem.destacado) {
+            me.newsItem.destacado = false;
         }
 
-        self.showDatepicker = function ($event) {
+        me.showDatepicker = function ($event) {
             $event.preventDefault();
             $event.stopPropagation();
-            self.opened = !self.opened;
-
+            me.opened = !me.opened;
         };
 
-        self.guardar = function () {
-            self.newsItem.$save(function (data) {
-                toastr.success("La noticia se a guardado");
+        me.addTags = function (tags) {
+            if (tags) {
+                var array = tags.split(',');
+                me.newsItem.tags = me.newsItem.tags ? me.newsItem.tags.concat(array) : array;
+                me.newTags = "";
+            }
+        };
+
+        me.removeTag = function (idx) {
+            me.newsItem.tags.splice(idx, 1);
+        };
+
+        me.guardar = function () {
+            me.newsItem.$save(function (data) {
+                toastr.success("La noticia se ha guardado", "Success");
             });
         };
 
-        self.cancelar = function () {
+        me.cancelar = function () {
             $state.go("newsList");
         };
 

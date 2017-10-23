@@ -6,6 +6,10 @@
     height: 200px;
 }
 
+.title {
+    color: lightskyblue;
+}
+
 .banner-small {
     height: 300px;
 }
@@ -16,12 +20,12 @@
     float: left;
 }
 
-.footer{
-    font-size:15px;
+.footer {
+    font-size: 15px;
     color: darkgray;
 
 }
 
-.title{
-color: lightskyblue;
+.title {
+    color: lightskyblue;
 }

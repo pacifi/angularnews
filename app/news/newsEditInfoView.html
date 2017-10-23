@@ -44,7 +44,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="input-group">
                     <input type="text" class="form-control" id="inputFechaPublicacion"
-                           uib-datepicker-popup="MMM dd,yyyy"
+                           uib-datepicker-popup="{{vm.format}}"
                            is-open="vm.opened"
                            placeholder="Fecha de Publicacion"
                            ng-model="vm.newsItem.fechaPublicacion">
