@@ -7,7 +7,9 @@
     ]);
 
     app.run(["$httpBackend", function ($httpBackend) {
+
         var categories = ['Politica', 'Economia', 'Deportes', 'Moda', 'Mundo'];
+
         var categoriesUrl = "/api/categorias";
 
         $httpBackend.whenGET(categoriesUrl).respond(categories);
@@ -81,8 +83,28 @@
             }
         ];
         var newsUrl = "/api/noticias";
-
         $httpBackend.whenGET(newsUrl).respond(news);
+
+        var editingRegExp = new RegExp(newsUrl + "/[0-9][0-9]*",'');
+        $httpBackend.whenGET(editingRegExp).respond(function (method, url, data) {
+            var newsItem = {idNoticia: 0};
+            var parameters = url.split('/'); ///api/noticias/2
+            var length = parameters.length;
+            var newsItemId = parameters[length - 1];
+
+            if(newsItemId > 0){
+                for (var i = 0; i < news.length; i++) {
+                    if (news[i].idNoticia == newsItemId){
+                        newsItem = news[i];
+                        break;
+                    }
+                }
+            }
+
+            return [200, newsItem, {}];
+        });
+
+
         $httpBackend.whenGET(/app/).passThrough();
     }]);
 }());

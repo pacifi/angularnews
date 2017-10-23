@@ -9,28 +9,31 @@
 <body>
 
 <nav class="navbar navbar-inverse">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#"><span class="title">News Wiki</span></a>
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><span class="title">News Wiki</span></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-          <li ui-sref-active="active"><a ui-sref="home">
-                  <i class="glyphicon glyphicon-home"> </i> </a></li>
-          <li ui-sref-active="active"><a ui-sref="newsList">Noticias</a></li>
-        <li ui-sref-active="active"><a href="#"><i class="glyphicon glyphicon-plus"></i>Agregar Noticias</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active"><a ui-sref="home">
+                    <i class="glyphicon glyphicon-home"> </i> </a></li>
+                <li ui-sref-active="active"><a ui-sref="newsList">Noticias</a></li>
+                <li ui-sref-active="active"><a ui-sref="newsEdit.info({idNoticia: 0})"><i
+                        class="glyphicon glyphicon-plus"></i>Agregar Noticias</a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
 
 <div class="container">
@@ -51,6 +54,8 @@
 <!--Application Script-->
 <script src="app/app.js"></script>
 <script src="app/news/newsCtrl.js"></script>
+<script src="app/news/newsDetailCtrl.js"></script>
+<script src="app/news/newsEditCtrl.js"></script>
 <script src="app/categories/categoriesCtrl.js"></script>
 
 

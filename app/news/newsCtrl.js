@@ -15,12 +15,12 @@
             me.news = data;
         });
 
-        me.onCategoryClick = function (category){
-            if(category){
+        me.onCategoryClick = function (category) {
+            if (category) {
                 me.filterCategory = category;
-            }else{
+            } else {
                 me.filterCategory = "";
             }
-        }
-    }   
+        };
+    }
 }());

@@ -5,10 +5,10 @@
     </button>
     <br><br>
     <div ng-show="cat.showCategories" class="btn-group" data-toggle="buttons">
-        <label class="btn btn-primary" ng-repeat="cate in cat.categories" ng-click=vm.onCategoryClick(cate)> 
+        <label class="btn btn-primary" ng-repeat="cate in cat.categories" ng-click=vm.onCategoryClick(cate)>
             <input type="radio" name="options" id="{{cate}}" autocomplete="off">{{cate}}
         </label>
-        <label class="btn btn-primary active"  ng-click=vm.onCategoryClick()> 
+        <label class="btn btn-primary active" ng-click=vm.onCategoryClick()>
             <input type="radio" name="options" id="mostrarTodos" autocomplete="off">Mostrar Todos
         </label>
     </div>
@@ -28,13 +28,16 @@
                     <h3>{{newItem.tituloNoticia }}</h3>
                     <p>{{newItem.descripcionNoticia.substring(0,100) + '...'}}</p>
                     <p>
-                        <a href="#" class="btn btn-primary" role="button">Leer mas</a>
-                        <a href="#" class="btn btn-default" role="button">Editar</a>
+                        <a ui-sref="newsDetail({idNoticia: newItem.idNoticia})" class="btn btn-primary"
+                           role="button">Leer mas</a>
+                        <a ui-sref="newsEdit.info({idNoticia: newItem.idNoticia})" class="btn btn-default"
+                           role="button">Editar</a>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="col-md-12" ng-show="(vm.news | filter:{destacado:true} | filter:{categoria:vm.filterCategory}).length==0">
+        <div class="col-md-12"
+             ng-show="(vm.news | filter:{destacado:true} | filter:{categoria:vm.filterCategory}).length==0">
             <p>No hay noticias destacas que mostrar</p>
         </div>
     </div>
@@ -53,13 +56,16 @@
 
                     <h4>{{newItem.tituloNoticia }}</h4>
                     <p>
-                        <a href="#" class="btn btn-primary btn-xs" role="button">Leer</a>
-                        <a href="#" class="btn btn-default btn-xs" role="button">Editar</a>
+                        <a ui-sref="newsDetail({idNoticia: newItem.idNoticia})" class="btn btn-primary btn-xs"
+                           role="button">Leer</a>
+                        <a ui-sref="newsEdit.info({idNoticia: newItem.idNoticia})" class="btn btn-default btn-xs"
+                           role="button">Editar</a>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="col-md-12" ng-show="(vm.news | filter:{destacado:false} | filter:{categoria:vm.filterCategory}).length==0">
+        <div class="col-md-12"
+             ng-show="(vm.news | filter:{destacado:false} | filter:{categoria:vm.filterCategory}).length==0">
             <p>No hay noticias que mostrar</p>
         </div>
     </div>

@@ -8,6 +8,6 @@
         .factory("newsResource", ["$resource", newsResource]);
 
     function newsResource($resource) {
-        return $resource("/api/noticias/:id");
+        return $resource("/api/noticias/:idNoticia");
     }
 }());
